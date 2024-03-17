@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 @Configuration
 public class DatasourceConfig {
   @Bean
-  public DataSource getPostgresqlDataSource() {
+  public DataSource dataSource() {
     DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
     dataSourceBuilder.driverClassName("org.postgresql.Driver");
     dataSourceBuilder.url("jdbc:postgresql://localhost:5432/ecm");
