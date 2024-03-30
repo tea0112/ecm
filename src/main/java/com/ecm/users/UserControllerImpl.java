@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/v1/users")
 public class UserControllerImpl implements UserController {
   @Autowired
   private UserService userService;
@@ -20,5 +20,10 @@ public class UserControllerImpl implements UserController {
     if (newUser == null) return ResponseEntity.badRequest().build();
     else
       return ResponseEntity.ok(userService.addUser(userDTO));
+  }
+
+  @PostMapping("/signin")
+  public ResponseEntity signin(@RequestBody UserDTO userDTO) {
+    return null;
   }
 }

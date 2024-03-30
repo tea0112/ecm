@@ -41,7 +41,7 @@ class UserControllerImplTest {
     User expectedUser = new User("new_user", "new_user_email@gmail.com", "New_user!23456");
     Mockito.when(mockUserService.addUser(any())).thenReturn(newUser);
 
-    ResultActions resultActions = this.mockMvc.perform(post("/users/register")
+    ResultActions resultActions = this.mockMvc.perform(post("/api/v1/users/register")
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsString(userDTO)))
