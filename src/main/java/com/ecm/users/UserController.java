@@ -1,5 +1,7 @@
 package com.ecm.users;
 
+import org.springframework.http.ResponseEntity;
+
 public interface UserController {
-  public User addUser(UserDTO userDTO);
+  public ResponseEntity<User> addUser(UserDTO userDTO);
 }
