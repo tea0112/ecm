@@ -1,12 +1,12 @@
 package com.ecm.users;
 
-import com.ecm.permissions.Permission;
-import com.ecm.roles.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class UserDetailsImpl implements UserDetails {
   private User user;
@@ -25,10 +25,7 @@ public class UserDetailsImpl implements UserDetails {
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    return this.user.getRoles()
-        .stream()
-        .map(r -> new SimpleGrantedAuthority(r.getName()))
-        .toList();
+    return new ArrayList<>(Collections.singleton(new SimpleGrantedAuthority(this.user.getRole().getName())));
   }
 
   @Override
